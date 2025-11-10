@@ -1,0 +1,266 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 265 90% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 223 99% 24%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 210 100% 52%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 215 98% 93%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 223 99% 28%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .menu-item {
+    @apply flex items-center gap-3 px-4 py-2 text-[15px] font-medium text-gray-700 rounded-md transition-colors hover:bg-gray-100 hover:text-gray-900;
+  }
+  
+  .menu-item.active {
+    @apply bg-blue-50 text-blue-700;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-admin {
+    @apply bg-admin-lavender text-brand-purple;
+  }
+
+  .badge-faculty {
+    @apply bg-admin-lightblue text-blue-600;
+  }
+
+  .badge-student {
+    @apply bg-admin-green text-green-700;
+  }
+
+  .badge-pending {
+    @apply bg-admin-yellow text-amber-700;
+  }
+
+  .badge-active {
+    @apply bg-admin-green text-green-700;
+  }
+
+  .badge-inactive {
+    @apply bg-admin-gray text-gray-700;
+  }
+
+  .status-icon-active {
+    @apply text-green-500;
+  }
+
+  .status-icon-inactive {
+    @apply text-gray-400;
+  }
+
+  .table-container {
+    @apply w-full overflow-hidden bg-white border rounded-lg shadow-sm animate-fade-in;
+  }
+
+  .table-header {
+    @apply bg-gray-50 text-left text-gray-600 text-sm font-medium border-b;
+  }
+
+  .table-row {
+    @apply border-b hover:bg-gray-50/50 transition-colors;
+  }
+
+  .table-cell {
+    @apply py-4 px-6 text-[15px];
+  }
+
+  .table-cell-truncate {
+    @apply py-4 px-6 text-[15px] max-w-0 truncate;
+  }
+
+  .table-action-menu {
+    @apply absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 animate-scale-in;
+  }
+
+  .table-action-item {
+    @apply flex items-center w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gray-50;
+  }
+
+  .table-action-item-destructive {
+    @apply text-red-600 hover:bg-red-50;
+  }
+
+  .search-input {
+    @apply w-full rounded-md border border-gray-300 px-3.5 py-2 pl-10 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple transition duration-200 ease-in-out;
+  }
+
+  /* Responsive utilities */
+  .responsive-container {
+    @apply w-full px-4 md:px-6 lg:px-8 mx-auto max-w-full;
+  }
+  
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
+  }
+
+  .table-responsive {
+    @apply overflow-x-auto -mx-3 md:mx-0;
+  }
+  
+  .table-inner {
+    @apply min-w-full md:w-full;
+  }
+
+  /* Text truncation utilities */
+  .text-truncate {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .content-container {
+    @apply max-w-full overflow-hidden;
+  }
+
+  /* Layout consistency */
+  .layout-main {
+    @apply flex-1 overflow-auto p-4 md:p-8;
+  }
+
+  .sidebar-layout {
+    @apply h-full w-64 bg-[#FBFBFE] flex flex-col shadow-lg;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .table-container {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0;
+  }
+  
+  .table-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Ensure proper layout consistency */
+.admin-layout {
+  @apply flex min-h-screen w-full bg-gray-50;
+}
+
+.sidebar-fixed {
+  @apply fixed inset-y-0 left-0 z-30 w-64;
+}
+
+.main-content {
+  @apply flex-1 overflow-auto;
+}
+
+.main-content-with-sidebar {
+  @apply ml-64;
+}
+
+@media (max-width: 768px) {
+  .main-content-with-sidebar {
+    @apply ml-0;
+  }
+}

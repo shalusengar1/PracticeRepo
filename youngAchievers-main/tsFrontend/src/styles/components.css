@@ -1,0 +1,29 @@
+.table-action-item-success {
+  @apply text-green-600 hover:text-green-700 hover:bg-green-50;
+}
+
+.text-truncate {
+  @apply overflow-hidden text-ellipsis whitespace-nowrap;
+}
+
+.content-container {
+  @apply max-w-full overflow-hidden;
+}
+
+.table-cell-truncate {
+  @apply max-w-0 truncate;
+}
+
+.sidebar-fixed {
+  @apply fixed inset-y-0 left-0 z-30;
+}
+
+.main-content-offset {
+  @apply ml-64;
+}
+
+@media (max-width: 768px) {
+  .main-content-offset {
+    @apply ml-0;
+  }
+}
